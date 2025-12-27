@@ -20,7 +20,7 @@ def save_json(data):
         json.dump(data, json_file, indent=4)
 
 while True:
-    event = input('Talk to me Goose ')
+    event = input('Talk to me Goose  ')
     if event == 'stop':
         break
 

@@ -1,32 +1,63 @@
 import json
-import os
 
+info = {
+            'tasks' : []
+        }
+k = 0
 
 def load_json():
-    if not os.path.exists('data_path'):
-        os.makedirs('data_path', exist_ok=True)
-        os.path.join('data_path', 'data.json')
+    try:
+        with open('data.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return info
 
-    with open('data_path') as json_file:
-        data = json.load(json_file)
-    return data
+def save_json(dataf):
+    with open('dataf', 'w') as json_file:
+        json.dump(dataf, json_file, indent=4)
 
-local_data = load_json()
+def task_id(ka):
+    return k + 1
 
-def save_json(data):
-    with open('data_path', 'w') as json_file:
-        json.dump(data, json_file, indent=4)
+def add_task():
+    load_json()
+    info['tasks'].append({
+        'name': (input('Name ')),
+        'description': (input('Description ')),
+        'id': (k),
+        'status': (input('Status '))
+    })
+    save_json(info)
 
+def remove_task():
+    dead_task = input('which task? ')
+    for task in info['tasks']:
+        if task['name'] == dead_task:
+            info['tasks'].remove(task)
+    save_json(info)
+
+def update_task():
+    load_json()
+    upd = input('which task? ')
+    new_char = input('what exactly? ')
+    for task in info['tasks']:
+        if task['name'] == upd:
+            task[new_char] = input('new char? ')
+    save_json(info)
+
+def show_all_tasks():
+    for task in info['tasks']:
+        print(task)
 while True:
-    event = input('Talk to me Goose  git')
+    event = input('Choose an option: ')
     if event == 'stop':
         break
-
     if event == 'add':
-        name = input('Name ')
-        local_data[0][name] = {
-            'description':input('lil description '),
-            'time':input('when start '),
-            'status':input('status ')
-        }
-        save_json(local_data)
+        k = task_id(k)
+        add_task()
+    if event == 'remove':
+        remove_task()
+    if event == 'update':
+        update_task()
+    if event == 'show all tasks':
+        show_all_tasks()

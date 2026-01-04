@@ -4,6 +4,7 @@ With Task Tracker, you coud easly add or remove your assingments from the list. 
 Program saves data in JSON format.
 
 Installation
+
 Clone the Git repo
 ```bash
 git clone https://github.com/zholondekmykhailo-sys/Task-Tracker

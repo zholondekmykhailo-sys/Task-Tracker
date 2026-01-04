@@ -13,7 +13,7 @@ start the main.py
 ```bash
 main.py
 ```
-##Available commands:
+Available commands:
  - add (adding task with the name, description, status and id) 
  - remove (removing task by name)
  - upd (updates given part of task)

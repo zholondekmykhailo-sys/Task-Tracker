@@ -2,8 +2,9 @@
 ## Simple CLI program to control your tasks. 
 With Task Tracker, you coud easly add or remove your assingments from the list. You coud also update already existed task. 
 Program saves data in JSON format.
-##Installation
-###Clone the Git repo
+
+Installation
+Clone the Git repo
 ```bash
 git clone https://github.com/zholondekmykhailo-sys/Task-Tracker
 ```
